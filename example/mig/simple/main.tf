@@ -8,7 +8,7 @@ provider "google" {
 ##### vpc module call.
 #####==============================================================================
 module "vpc" {
-  source                                    = "git::git@github.com:opsstation/terraform-gcp-vpc.git?ref=v1.0.0"
+  source                                    = "git::git@github.com:sohanyadav/terraform-gcp-vpc.git?ref=v1.0.0"
   name                                      = "dev"
   environment                               = "test"
   label_order                               = ["name", "environment"]
@@ -23,7 +23,7 @@ module "vpc" {
 ##### subnet module call.
 #####==============================================================================
 module "subnet" {
-  source        = "git::git@github.com:opsstation/terraform-gcp-subnet.git?ref=v1.0.0"
+  source        = "git::git@github.com:sohanyadav/terraform-gcp-subnet.git?ref=v1.0.0"
   subnet_names  = ["dev-subnet1"]
   name          = "dev"
   environment   = "test"
@@ -37,7 +37,7 @@ module "subnet" {
 ##### firewall module call.
 #####==============================================================================
 module "firewall" {
-  source        = "git::git@github.com:opsstation/terraform-gcp-firewall.git?ref=v1.0.0"
+  source        = "git::git@github.com:sohanyadav/terraform-gcp-firewall.git?ref=v1.0.0"
   name          = "dev-firewall"
   environment   = "test"
   label_order   = ["name", "environment"]
@@ -55,7 +55,7 @@ module "firewall" {
 ##### instance_template module call.
 #####==============================================================================
 module "instance_template" {
-  source               = "git::git@github.com:opsstation/terraform-gcp-vm-template-instance.git?ref=v1.0.0"
+  source               = "git::git@github.com:sohanyadav/terraform-gcp-vm-template-instance.git?ref=v1.0.0"
   name                 = "dev"
   environment          = "test"
   region               = "asia-northeast1"

@@ -20,7 +20,7 @@ To use this module, you should have Terraform installed and configured for GCP. 
 
 ```hcl
 module "mig" {
-  source              = "https://github.com/opsstation/terraform-gcp-instance-group.git"
+  source              = "https://github.com/sohanyadav/terraform-gcp-instance-group.git"
   region              = "asia-northeast1"
   target_size         = 2
   hostname            = "dev"
@@ -40,7 +40,7 @@ module "mig" {
 
 ```hcl
 module "mig" {
-  source              = "https://github.com/opsstation/terraform-gcp-instance-group.git"
+  source              = "https://github.com/sohanyadav/terraform-gcp-instance-group.git"
   instance_template   = module.instance_template.self_link_unique
   region              = "asia-northeast1"
   autoscaling_enabled = true
@@ -76,7 +76,7 @@ module "mig" {
 
 ```hcl
 module "mig" {
-  source                       = "https://github.com/opsstation/terraform-gcp-instance-group.git"
+  source                       = "https://github.com/sohanyadav/terraform-gcp-instance-group.git"
   hostname                     = "test"
   environment                  = "instance-group"
   max_replicas                 = 2
@@ -98,7 +98,7 @@ module "mig" {
 
 ```hcl
 module "mig" {
-  source              = "https://github.com/opsstation/terraform-gcp-instance-group.git"
+  source              = "https://github.com/sohanyadav/terraform-gcp-instance-group.git"
   region              = var.region
   hostname            = "test"
   environment         = "mig-autoscaler"
@@ -124,14 +124,14 @@ This example demonstrates how to create various GCP resources using the provided
 - This module currently does not provide any outputs.
 
 # Examples
-For detailed examples on how to use this module, please refer to the [example](https://github.com/opsstation/terraform-gcp-instance-group/tree/master/_example) directory within this repository.
+For detailed examples on how to use this module, please refer to the [example](https://github.com/sohanyadav/terraform-gcp-instance-group/tree/master/_example) directory within this repository.
 
 ## Authors
 Your Name
 Replace '[License Name]' and '[Your Name]' with the appropriate license and your information. Feel free to expand this README with additional details or usage instructions as needed for your specific use case.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/opsstation/terraform-gcp-instance-group/blob/master/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/sohanyadav/terraform-gcp-instance-group/blob/master/LICENSE) file for details.
 
 
 
@@ -155,7 +155,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_labels"></a> [labels](#module\_labels) | git::git@github.com:opsstation/terraform-gcp-labels.git | v1.0.0 |
+| <a name="module_labels"></a> [labels](#module\_labels) | git::git@github.com:sohanyadav/terraform-gcp-labels.git | v1.0.0 |
 
 ## Resources
 
@@ -187,7 +187,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 | <a name="input_hostname"></a> [hostname](#input\_hostname) | Hostname prefix for instances | `string` | `"default"` | no |
 | <a name="input_instance_template"></a> [instance\_template](#input\_instance\_template) | Instance template self\_link used to create compute instances | `string` | n/a | yes |
 | <a name="input_label_order"></a> [label\_order](#input\_label\_order) | Label order, e.g. sequence of application name and environment `name`,`environment`,'attribute' [`webserver`,`qa`,`devops`,`public`,] . | `list(any)` | <pre>[<br>  "name",<br>  "environment"<br>]</pre> | no |
-| <a name="input_managedby"></a> [managedby](#input\_managedby) | ManagedBy,opsstation'. | `string` | `""` | no |
+| <a name="input_managedby"></a> [managedby](#input\_managedby) | ManagedBy,sohanyadav'. | `string` | `""` | no |
 | <a name="input_max_replicas"></a> [max\_replicas](#input\_max\_replicas) | The maximum number of instances that the autoscaler can scale up to. This is required when creating or updating an autoscaler. The maximum number of replicas should not be lower than minimal number of replicas. | `number` | `10` | no |
 | <a name="input_mig_timeouts"></a> [mig\_timeouts](#input\_mig\_timeouts) | Times for creation, deleting and updating the MIG resources. Can be helpful when using wait\_for\_instances to allow a longer VM startup time. | <pre>object({<br>    create = string<br>    update = string<br>    delete = string<br>  })</pre> | <pre>{<br>  "create": "5m",<br>  "delete": "15m",<br>  "update": "5m"<br>}</pre> | no |
 | <a name="input_min_replicas"></a> [min\_replicas](#input\_min\_replicas) | The minimum number of replicas that the autoscaler can scale down to. This cannot be less than 0. | `number` | `2` | no |
